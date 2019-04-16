@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+
+	<title>Cake builder</title>
+	<meta name="description" content="">
+	
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<div id="app" v-cloak>
+		<div class="wrapper">
+			<h1>Cake builed</h1>
+			<hr>
+			<button class="button addLayer" @click="addLayer">Добавить слой</button>
+			<hr>
+			<div class="row">
+				<div class="cake_visual" v-show="cakeLayers.length > 0">
+					<h2>Ваш будущий тортик</h2>
+					<div class="container" :style="{ width: cakeWidth * 10 + 'px' }">
+						<layer v-for="(layer,i) in cakeLayers"
+							:index="i + 1"
+							:type="layer.type"
+							:height="layer.height"
+							:price="layers[layer.type].pricePerSm"
+						></layer>
+					</div>
+				</div>
+				<div class="cake_controls" v-show="cakeLayers.length > 0">
+					<h2>Управление слоями</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Тип</th>
+								<th>Высота</th>
+								<th>Удалить</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for="(layer,i) in cakeLayers">
+								<td>
+									{{i + 1}}
+								</td>
+								<td>
+									<select v-model="layer.type">
+										<option 
+											v-for="(item,i) in layers" 
+											:value="i"
+										>{{item.title}}</option>
+									</select>
+								</td>
+								<td>
+									<input type="number" 
+										min="3"
+										max="10"
+										v-model="layer.height"
+									>
+								</td>
+								<td>
+									<button class="button" @click="delLayer(i)">Удалить</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="radius">
+						<h2>Радиус тортика</h2>
+						<input type="range" min="20" max="40" v-model="cakeWidth">
+						<span>{{cakeWidth}} см</span>
+					</div>
+				</div>
+			</div>
+			<br><br>
+			<hr>
+			<div class="total">
+				<span class="total_price">{{totalPrice}} грн</span>
+				<button class="button order" @click="order">Заказать</button>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="js/vue.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>

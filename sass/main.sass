@@ -1,0 +1,124 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+	margin: 0
+	padding: 0
+	border: 0
+	font-size: 100%
+	font: inherit
+	vertical-align: baseline
+	box-sizing: border-box
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section 
+	display: block
+ol, ul
+	list-style: none
+blockquote, q
+	quotes: none
+blockquote:before, blockquote:after,
+q:before, q:after
+	content: ''
+	content: none
+table
+	border-collapse: collapse
+	border-spacing: 0
+body
+	line-height: 1
+	background: wheat
+	font-family: Verdana, serif
+h1
+	font-size: 32px
+h2
+	font-size: 22px
+	margin-bottom: 10px
+	width: 100%
+
+[v-cloak]
+	display: none
+
+
+.button
+	width: 100%
+	max-width: 400px
+	background: #35ad79
+	color: #fff
+	border: none
+	padding: 8px 10px
+	text-transform: uppercase
+	cursor: pointer
+	margin-bottom: 15px
+	transition: .3s
+	&:hover
+		opacity: .7
+
+#app
+
+	.wrapper
+		width: 980px
+		padding: 20px
+		margin: 0 auto
+		background: #fff
+		.row
+			display: flex
+			justify-content: space-between
+			.cake_visual
+				width: 100%
+				max-width: 400px
+				display: flex
+				flex-direction: column
+				align-items: center
+				.container
+					width: 100%
+					display: flex
+					flex-direction: column
+					align-items: center
+					.layer
+						width: 100%
+						display: flex
+						justify-content: flex-start
+						align-items: center
+						&.bisquit
+							background-image: url('../img/biskvit.png')
+						&.crem
+							background-image: url('../img/krem.png')
+						&.tvorog
+							background-image: url('../img/tvorog.png')
+						span
+							font-size: 14px
+							background: wheat
+							padding: 5px 7px
+							margin-left: 10px
+			.cake_controls
+				width: 100%
+				max-width: 400px
+				table
+					width: 100%
+					margin-bottom: 20px
+					td,th
+						border: 1px solid #000
+						padding: 5px 10px
+						text-align: center
+					input
+						text-align: center
+						width: 40px
+						padding: 5px 0px 5px 14px
+					select
+						width: 100px
+						padding: 5px 10px
+					.button
+						margin-bottom: 0
+		.total
+			display: flex
+			flex-direction: column
+			span.total_price
+				margin-bottom: 10px
